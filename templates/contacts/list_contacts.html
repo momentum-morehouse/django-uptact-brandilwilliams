@@ -21,6 +21,14 @@
       </div>
     </div>
 
+    {% if contact.birthday %}
+    <div class="flex">
+      <div class="pr2"><i class="icofont-birthday"></i></div>
+      <div>{{ contact.birthday }}</div>
+    </div>
+    {% endif %}
+
+
     {% if contact.phone_number %}
     <div class="flex">
       <div class="pr2"><i class="icofont-phone"></i></div>

@@ -6,9 +6,10 @@ from localflavor.us.models import USStateField, USZipCodeField
 class Contact(models.Model):
     phone_regex = RegexValidator(
         regex=r'^\+?\d{10}$',
-        message="Phone number must be entered in the format: '+9999999999'.")
-
+        message="Phone number must be entered in the format: '+9
+        
     name = models.CharField(max_length=255)
+    birthday = models.DateField(max_length=8, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     phone_number = models.CharField(max_length=11,
                                     validators=[phone_regex],
