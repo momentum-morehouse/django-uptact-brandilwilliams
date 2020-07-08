@@ -15,4 +15,8 @@ class ContactForm(forms.ModelForm):
             'zip_code',
             'phone_number',
             'email',
-        ]
+      ]
+
+      widgets = {
+        "birthday": forms.DateInput|format=('%m/%d/%Y'), attrs= {'class':'form-control', 'placeholder' :'Select a date', 'type': 'date'}),
+      }
