@@ -52,3 +52,7 @@ def list_notes(request, pk):
    
     return render(request, "contacts/contact_details.html"),
                   {"notes': notes})
+
+def contact_detail(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    return render(request, "contacts/contacts_view.html", {"contact": contact})                  
