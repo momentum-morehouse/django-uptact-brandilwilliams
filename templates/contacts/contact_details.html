@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+4	-  <div class="w-33 pa3">
+5	-     <h2>{{ contact.name }}</h2>
+6	-
+7	-     <div class="flex">
+8	-       <div class="pr2"><i class="icofont-location-pin"></i></div>
+9	-       <div>
+10	-         {{ contact.address_1 }}<br />
+11	-         {% if contact.address_2 %}
+12	-           {{ contact.address_2 }}<br />
+13	-         {% endif %}
+14	-         {{ contact.city }}, {{ contact.state }} {{ contact.zip_code }}
+15	-       </div>
+16	-     </div>
+17	-
+18	-     {% if contact.birthday %}
+19	-     <div class="flex">
+20	-       <div class="pr2"><i class="icofont-birthday"></i></div>
+21	-       <div>{{ contact.birthday }}</div>
+22	-     </div>
+23	-     {% endif %}
+24	-
+25	-
+26	-     {% if contact.phone_number %}
+27	-     <div class="flex">
+28	-       <div class="pr2"><i class="icofont-phone"></i></div>
+29	-       <div>{{ contact.phone_number }}</div>
+30	-     </div>
+31	-     {% endif %}
+32	-
+33	-     {% if contact.email %}
+34	-     <div class="flex">
+35	-       <div class="pr2"><i class="icofont-ui-email"></i></div>
+36	-       <div>{{ contact.email }}</div>
+37	-     </div>
+38	-     {% endif %}
+39	-
+40	-     <p>
+41	-       <a href="{% url 'edit_contact' pk=contact.pk %}">Edit Contact</a><br>    
+42	-       <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a>
+43	-     </p>
+44	-   </div>
+45	- <div class = 'notes'>
+46	-     {% if contact.notes %}
+47	-     {% for note in contact.notes.all %}
+48	-     <div class="flex">
+49	-       <div>{{ note.text }}
+50	-       </div>
+51	-     </div>
+52	-     {% endfor %}
+53	-     {% endif %}
+54	-
+55	-     </div>
+56	- </div>  
+57	- {% endblock %}

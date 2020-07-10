@@ -6,7 +6,7 @@ from localflavor.us.models import USStateField, USZipCodeField
 class Contact(models.Model):
     phone_regex = RegexValidator(
         regex=r'^\+?\d{10}$',
-        message="Phone number must be entered in the format: '+9
+        message="Phone number must be entered in the format:'+9999999999'.")
         
     name = models.CharField(max_length=255)
     birthday = models.DateField(max_length=8, null=True, blank=True)
@@ -25,6 +25,6 @@ def _str_(self):
       return self.name
 
 class Note(models.Model):
-  contact = models.ForeignKey(Contact, on_delete=models.CASCADE, rtelated_name='notes')
-  text = models.Charfield (max_length=255, null=True, blank=True)
+  contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name='notes')
+  text = models.CharField (max_length=255, null=True, blank=True)
   date_added = models.DateTimeField (auto_now_add=True)    
